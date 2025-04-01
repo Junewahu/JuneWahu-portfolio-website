@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Health Blog | Dr. June Wahu</title>
+    <meta name="description" content="Exploring the intersection of healthcare and technology with Dr. June Wahu">
+    <!-- Favicon -->
+    <link rel="icon" href="../assets/images/favicon.ico">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- CSS -->
+    <link rel="stylesheet" href="../assets/css/main.css">
+    <link rel="stylesheet" href="../assets/css/light-mode.css" id="theme-style">
+</head>
+<body>
+    <!-- Navigation -->
+    <header class="glassmorphism">
+        <div class="container">
+            <nav>
+                <div class="logo">
+                    <a href="../index.html">Dr.<span>June Wahu, MBChB ⚕️</span></a>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="../index.html#home">Home</a></li>
+                    <li><a href="../index.html#about">About</a></li>
+                    <li><a href="../index.html#projects">Projects</a></li>
+                    <li><a href="index.html" class="active">Blog</a></li>
+                    <li><a href="../index.html#contact">Contact</a></li>
+                    <li>
+                        <div class="theme-toggle">
+                            <input type="checkbox" id="dark-mode-toggle" checked>
+                            <label for="dark-mode-toggle" class="toggle-label">
+                                <i class="fas fa-sun"></i>
+                                <i class="fas fa-moon"></i>
+                                <span class="ball"></span>
+                            </label>
+                        </div>
+                    </li>
+                </ul>
+                <div class="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Blog Hero Section -->
+    <section class="blog-hero">
+        <div class="container">
+            <h1>Digital Health Blog</h1>
+            <p class="subtitle">Exploring the intersection of healthcare and technology through in-depth articles and analysis</p>
+            <div class="search-bar">
+                <input type="text" placeholder="Search articles...">
+                <button class="btn btn-primary"><i class="fas fa-search"></i></button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Content -->
+    <main class="blog-index">
+        <div class="container">
+            <!-- Category Filter -->
+            <div class="category-filter">
+                <button class="btn btn-secondary active">All Articles</button>
+                <button class="btn btn-secondary">AI/ML</button>
+                <button class="btn btn-secondary">Telemedicine</button>
+                <button class="btn btn-secondary">Clinical Tools</button>
+                <button class="btn btn-secondary">Wearables</button>
+                <button class="btn btn-secondary">Ethics</button>
+            </div>
+
+            <!-- Blog Grid -->
+            <div class="blog-grid">
+                <!-- Featured Article -->
+                <article class="blog-card glassmorphism">
+                    <div class="featured-badge">Featured</div>
+                    <a href="ai-medical-diagnosis.html" class="blog-card-image">
+                        <img src="../assets/images/blog/ai-diagnosis.jpg" alt="AI in Medical Diagnosis">
+                    </a>
+                    <div class="blog-card-content">
+                        <div class="post-meta">
+                            <span class="category">AI/ML</span>
+                            <span class="date">April 3, 2025</span>
+                        </div>
+                        <h2><a href="ai-medical-diagnosis.html">The Future of AI in Medical Diagnosis</a></h2>
+                        <p>Exploring how artificial intelligence is transforming diagnostic accuracy and efficiency in clinical practice.</p>
+                        <div class="blog-card-footer">
+                            <div class="read-time">
+                                <i class="far fa-clock"></i>
+                                <span>8 min read</span>
+                            </div>
+                            <a href="ai-medical-diagnosis.html" class="btn btn-primary btn-sm">Read</a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Repeat for other blog articles -->
+            </div>
+
+            <!-- Subscribe Call-to-Action -->
+            <div class="subscribe-cta glassmorphism">
+                <h2>Stay Updated with Digital Health Insights</h2>
+                <p>Subscribe to receive the latest articles and updates directly to your inbox</p>
+                <form class="subscribe-form">
+                    <input type="email" placeholder="Your email address" required>
+                    <button type="submit" class="btn btn-primary">Subscribe</button>
+                </form>
+            </div>
+
+            <!-- Pagination -->
+            <div class="pagination">
+                <button class="btn btn-secondary disabled"><i class="fas fa-chevron-left"></i></button>
+                <button class="btn btn-primary active">1</button>
+                <button class="btn btn-secondary">2</button>
+                <button class="btn btn-secondary"><i class="fas fa-chevron-right"></i></button>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <a href="../index.html" class="logo">Dr. June Wahu</a>
+                    <p>Bridging Medicine and Technology</p>
+                    <div class="social-links">
+                        <a href="https://linkedin.com/in/junewahumwangi" target="_blank"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://github.com/junewahu" target="_blank"><i class="fab fa-github"></i></a>
+                        <a href="https://twitter.com/junewahu" target="_blank"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h3>Explore</h3>
+                        <ul>
+                            <li><a href="../index.html#home">Home</a></li>
+                            <li><a href="../index.html#about">About</a></li>
+                            <li><a href="../index.html#projects">Projects</a></li>
+                            <li><a href="index.html">Blog</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h3>Resources</h3>
+                        <ul>
+                            <li><a href="#">Pitch Deck Presentations</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h3>Contact</h3>
+                        <ul>
+                            <li><a href="mailto:junewahu@gmail.com">junewahu@gmail.com</a></li>
+                            <li><a href="tel:+254759698950">+254 759 698 950</a></li>
+                            <li><a href="#">Nairobi, Kenya</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Dr. June Wahu. All rights reserved.</p>
+                <div class="theme-toggle">
+                    <input type="checkbox" id="footer-dark-mode-toggle" checked>
+                    <label for="footer-dark-mode-toggle" class="toggle-label">
+                        <i class="fas fa-sun"></i>
+                        <i class="fas fa-moon"></i>
+                        <span class="ball"></span>
+                    </label>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="../assets/js/main.js"></script>
+    <script>
+        // Theme toggle functionality and other scripts
+    </script>
+</body>
+</html>
