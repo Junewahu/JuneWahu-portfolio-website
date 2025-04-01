@@ -1,0 +1,55 @@
+:root {
+    /* Dark Mode Variables */
+    --primary: #f8a5c2;  /* Soft Pink */
+    --secondary: #b8a1e8;/* Light Lavender */
+    --accent: #ffcce6;   /* Light Blush */
+    --background: #1a1423; /* Deep purple */
+    --text: #e2d9f3;    /* Light lavender */
+    --text-light: #c1b3d9;
+
+    /* Glassmorphism */
+    --glass-bg: rgba(42, 33, 61, 0.4);
+    --glass-border: rgba(255, 255, 255, 0.1);
+
+    /* Shadows */
+    --shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    --shadow-lg: 0 15px 30px rgba(0, 0, 0, 0.4);
+}
+
+.header {
+    background-color: rgba(26, 20, 35, 0.9);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.card {
+    background-color: rgba(42, 33, 61, 0.7);
+}
+
+.testimonial {
+    background-color: rgba(42, 33, 61, 0.7);
+}
+
+.blog-card .blog-content {
+    background-color: rgba(42, 33, 61, 0.7);
+}
+
+.form-group input,
+.form-group textarea {
+    background-color: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: var(--text);
+}
+
+.color-options {
+    background-color: rgba(42, 33, 61, 0.9);
+}
+
+.footer {
+    background-color: rgba(26, 20, 35, 0.9);
+}
+
+.blog .section-header h2,
+.blog .section-header p {
+    color: var(--text) !important;
+}
+
