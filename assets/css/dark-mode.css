@@ -1,3 +1,4 @@
+/* Dark Mode Specific Styles */
 :root {
     /* Dark Mode Variables */
     --primary: #f8a5c2;  /* Soft Pink */
@@ -6,33 +7,38 @@
     --background: #1a1423; /* Deep purple */
     --text: #e2d9f3;    /* Light lavender */
     --text-light: #c1b3d9;
-
+    
     /* Glassmorphism */
     --glass-bg: rgba(42, 33, 61, 0.4);
     --glass-border: rgba(255, 255, 255, 0.1);
-
+    
     /* Shadows */
     --shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
     --shadow-lg: 0 15px 30px rgba(0, 0, 0, 0.4);
 }
 
+/* Header */
 .header {
     background-color: rgba(26, 20, 35, 0.9);
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
 }
 
+/* Cards */
 .card {
     background-color: rgba(42, 33, 61, 0.7);
 }
 
+/* Testimonials */
 .testimonial {
     background-color: rgba(42, 33, 61, 0.7);
 }
 
+/* Blog Cards */
 .blog-card .blog-content {
     background-color: rgba(42, 33, 61, 0.7);
 }
 
+/* Form Elements */
 .form-group input,
 .form-group textarea {
     background-color: rgba(255, 255, 255, 0.05);
@@ -40,16 +46,42 @@
     color: var(--text);
 }
 
+/* Theme Color Picker */
 .color-options {
     background-color: rgba(42, 33, 61, 0.9);
 }
 
+/* Footer */
 .footer {
     background-color: rgba(26, 20, 35, 0.9);
 }
 
+/* Radar Chart Fix */
+.radar-chart-container {
+    background-color: rgba(42, 33, 61, 0.7) !important;
+}
+
+.radar-chart-container canvas {
+    background-color: transparent !important;
+}
+
+/* Blog Section Header Fix */
 .blog .section-header h2,
 .blog .section-header p {
     color: var(--text) !important;
 }
 
+/* Testimonial Content Fix */
+.testimonial-content {
+    color: var(--text) !important;
+}
+
+/* Timeline Content Fix */
+.timeline-content {
+    background-color: rgba(42, 33, 61, 0.7) !important;
+}
+
+.timeline-content p,
+.timeline-content li {
+    color: var(--text-light) !important;
+}
