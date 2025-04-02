@@ -7,7 +7,7 @@
 ---
 
 ## 🚀 **Why This Portfolio?**  
-This isn't just another portfolio—it's a **bridge between medicine and technology**! Designed for:  
+This isn't just another portfolio; it's a **bridge between medicine and technology**! Designed for:  
 - 🤝 **Potential collaborators** needing proof of skills  
 - 🎯 **Hiring managers** seeking multidisciplinary talent  
 - 🏆 **Software engineers** who love clean code + wow factor  
@@ -24,7 +24,7 @@ This isn't just another portfolio—it's a **bridge between medicine and technol
 | 📚✍️  **Tech Blog** | ⭐⭐⭐⭐ | I write about: AI in radiology 🖥️  Telemedicine architecture 📡 Ethical healthcare tech ⚖️ |  
 | 📊 📂  **Projects Gallery** | ⭐⭐⭐⭐⭐ | 6+ real-world projects including: AI Diagnosis Tools 🤖  Blockchain Health Records ⛓️  Medical Data Dashboards 📊   |  
 | 📝 **Interactive CV** | ⭐⭐⭐ | PDF download + key highlights |  
-| 📝 **Pitch Deck Presentations** | ⭐⭐⭐⭐⭐ | With every slide, I aim to show how my innovations don’t just disrupt healthcare—they improve lives. | 
+| 📝 **Pitch Deck Presentations** | ⭐⭐⭐⭐⭐ | With every slide, I aim to show you how my innovations don’t just disrupt healthcare, they improve lives. | 
 
 ---
 
@@ -41,6 +41,7 @@ This isn't just another portfolio—it's a **bridge between medicine and technol
 
 ---
 
+
 ## 🏃‍♂️ **Let's Get This Running!**  
 
 ### Option 1: Quick Peek 👀  
@@ -54,19 +55,24 @@ cd JuneWahu-portfolio
 Pro Tip: Use Live Server in VS Code for best experience!
 
 ## OR:
-📥 Download ZIP
-📂 Extract files
-🖱️ Double-click index.html
+🌐 Open the live GitHub Pages URL
+
+https://junewahu.github.io/JuneWahu-portfolio-website/
 
 
-## 🎉 **Special Thanks To: **  
+## 🎉 Special Thanks To: 
+
 The amazing free fonts from Google Fonts
 
 Coffee ☕ (The real MVP)
 
 You for checking this out! 🙌
 
+
+
+
 "Coding is like medicine - it's all about solving problems with precision!" 💻❤️
 
 Made with ❤️, ☕, and late-night coding sessions.
+
 © 2025 June Wahu - Healing the world, one line of code at a time.
