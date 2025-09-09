@@ -66,19 +66,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   });
 
-  // Blog card overlay accessibility: allow keyboard focus
-  const blogCards = document.querySelectorAll('.blog-card');
-  blogCards.forEach(card => {
-    card.setAttribute('tabindex', '0');
-    card.addEventListener('focus', function() {
-      this.classList.add('focus');
-    });
-    card.addEventListener('blur', function() {
-      this.classList.remove('focus');
-    });
-  });
-
-  // Testimonial carousel logic
+  // Testimonial slider logic
   const testimonials = document.querySelectorAll('.testimonial-slider .testimonial');
   const prevBtn = document.querySelector('.testimonial-prev');
   const nextBtn = document.querySelector('.testimonial-next');
@@ -87,10 +75,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
   function showTestimonial(idx) {
     testimonials.forEach((t, i) => {
-      t.classList.remove('active', 'prev', 'next');
-      if (i === idx) t.classList.add('active');
-      else if (i === (idx + 1) % testimonials.length) t.classList.add('next');
-      else if (i === (idx - 1 + testimonials.length) % testimonials.length) t.classList.add('prev');
+      t.classList.toggle('active', i === idx);
     });
     dots.forEach((d, i) => {
       d.classList.toggle('active', i === idx);
@@ -112,40 +97,19 @@ document.addEventListener('DOMContentLoaded', function () {
         showTestimonial(currentTestimonial);
       });
     });
-    // Optional: auto-advance every 7s
-    setInterval(() => {
-      currentTestimonial = (currentTestimonial + 1) % testimonials.length;
-      showTestimonial(currentTestimonial);
-    }, 7000);
   }
 
-  // Section highlighting for sticky nav
+  // Sticky nav active section highlighting
   const sections = document.querySelectorAll('section');
-  const navLinkElements = document.querySelectorAll('.nav-link');
+  const navLinkEls = document.querySelectorAll('.nav-link');
   window.addEventListener('scroll', () => {
     let current = '';
     sections.forEach(section => {
       const sectionTop = section.offsetTop - 80;
       if (window.scrollY >= sectionTop) current = section.getAttribute('id');
     });
-    navLinkElements.forEach(link => {
-      link.classList.toggle('active', link.getAttribute('href') === `#${current}`);
-    });
-  });
-
-  // Project card overlay accessibility: allow keyboard focus
-  const projectCards = document.querySelectorAll('.project-card');
-  projectCards.forEach(card => {
-    card.setAttribute('tabindex', '0');
-    card.addEventListener('focus', function() {
-      this.classList.add('focus');
-      const overlay = this.querySelector('.project-overlay');
-      if (overlay) overlay.style.opacity = 1;
-    });
-    card.addEventListener('blur', function() {
-      this.classList.remove('focus');
-      const overlay = this.querySelector('.project-overlay');
-      if (overlay) overlay.style.opacity = 0;
+    navLinkEls.forEach(link => {
+      link.classList.toggle('active', link.getAttribute('href').includes(current));
     });
   });
 });
