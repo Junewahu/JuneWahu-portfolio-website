@@ -3,841 +3,202 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blockchain Applications in Healthcare Data Security | Dr. June Wahu</title>
+    <title>Blockchain Applications in Healthcare Data Security | June Wahu</title>
     <meta name="description" content="How blockchain technology can revolutionize patient data security, privacy, and interoperability in modern healthcare systems.">
-    
-    <!-- Favicon -->
-    <link rel="icon" href="../assets/images/favicon.ico">
-    
-    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="../assets/css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
-   
-    <!-- Our CSS -->
-    <link rel="stylesheet" href="../assets/css/main.css">
-    <link rel="stylesheet" href="../assets/css/light-mode.css" id="theme-style">
-    
-    <style>
-        :root {
-            --blog-primary: #4e8cff;
-            --blog-primary-light: rgba(78, 140, 255, 0.1);
-            --blog-card-hover-shadow: 0 15px 30px rgba(0,0,0,0.12);
-        }
-        
-        /* Improved Navigation Spacing */
-        .nav-links {
-            display: flex;
-            align-items: center;
-            gap: 2rem;
-        }
-        
-        .nav-links li {
-            margin: 0;
-            padding: 0;
-        }
-        
-        .nav-links a {
-            padding: 0.5rem 0;
-            position: relative;
-            font-size: 1rem;
-            font-weight: 500;
-            transition: color 0.3s ease;
-        }
-        
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--blog-primary);
-            transition: width 0.3s ease;
-        }
-        
-        .nav-links a:hover::after,
-        .nav-links a.active::after {
-            width: 100%;
-        }
-        
-        .nav-links a:hover {
-            color: var(--blog-primary);
-        }
-        
-        .nav-links a.active {
-            color: var(--blog-primary);
-            font-weight: 600;
-        }
-        
-        /* Theme toggle styles */
-        .theme-toggle {
-            position: relative;
-            display: inline-block;
-            width: 60px;
-            height: 30px;
-            margin-left: 1rem;
-        }
-        
-        .theme-toggle input {
-            opacity: 0;
-            width: 0;
-            height: 0;
-        }
-        
-        .toggle-label {
-            position: absolute;
-            cursor: pointer;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-color: #ccc;
-            transition: .4s;
-            border-radius: 34px;
-        }
-        
-        .toggle-label:before {
-            position: absolute;
-            content: "";
-            height: 22px;
-            width: 22px;
-            left: 4px;
-            bottom: 4px;
-            background-color: white;
-            transition: .4s;
-            border-radius: 50%;
-        }
-        
-        input:checked + .toggle-label {
-            background-color: var(--blog-primary);
-        }
-        
-        input:checked + .toggle-label:before {
-            transform: translateX(30px);
-        }
-        
-        .toggle-label i {
-            position: absolute;
-            top: 6px;
-            font-size: 0.8rem;
-        }
-        
-        .toggle-label .fa-sun {
-            left: 8px;
-            color: #f1c40f;
-        }
-        
-        .toggle-label .fa-moon {
-            right: 8px;
-            color: #f5f6fa;
-        }
-        
-        /* Blog post styles */
-        .reading-progress {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 0%;
-            height: 4px;
-            background: var(--blog-primary);
-            z-index: 1000;
-            transition: width 0.2s ease;
-        }
-        
-        .blog-post {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 3rem 1rem;
-        }
-        
-        .blog-header {
-            margin-bottom: 3rem;
-            text-align: center;
-        }
-        
-        .blog-title {
-            font-size: 2.8rem;
-            margin-bottom: 1.5rem;
-            line-height: 1.3;
-            color: var(--heading-color);
-            font-family: 'Playfair Display', serif;
-        }
-        
-        .blog-meta {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 1.5rem;
-            margin-bottom: 2rem;
-            color: var(--text-secondary);
-            flex-wrap: wrap;
-        }
-        
-        .category {
-            background: var(--blog-primary-light);
-            color: var(--blog-primary);
-            padding: 0.4rem 1rem;
-            border-radius: 20px;
-            font-weight: 600;
-            font-size: 0.85rem;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-        
-        .author-info {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 1rem;
-            margin: 2rem 0;
-        }
-        
-        .author-avatar {
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 3px solid var(--blog-primary-light);
-        }
-        
-        .author-details {
-            text-align: left;
-        }
-        
-        .author-name {
-            display: block;
-            font-weight: 600;
-            color: var(--heading-color);
-        }
-        
-        .author-title {
-            font-size: 0.9rem;
-            color: var(--text-secondary);
-        }
-        
-        .author-social {
-            display: flex;
-            gap: 0.8rem;
-            margin-top: 0.5rem;
-        }
-        
-        .author-social a {
-            color: var(--text-secondary);
-            transition: color 0.3s ease;
-        }
-        
-        .author-social a:hover {
-            color: var(--blog-primary);
-        }
-        
-        .blog-featured-image {
-            width: 100%;
-            height: 450px;
-            object-fit: cover;
-            border-radius: 12px;
-            margin: 2rem 0;
-            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
-        }
-        
-        .blog-content {
-            line-height: 1.8;
-            font-size: 1.1rem;
-            color: var(--text-primary);
-        }
-        
-        .blog-content img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 8px;
-            margin: 2.5rem 0;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-        }
-        
-        .blog-content h2 {
-            margin-top: 3.5rem;
-            margin-bottom: 1.8rem;
-            color: var(--heading-color);
-            font-family: 'Playfair Display', serif;
-            position: relative;
-            padding-bottom: 0.5rem;
-        }
-        
-        .blog-content h2::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 60px;
-            height: 3px;
-            background: var(--blog-primary);
-            border-radius: 3px;
-        }
-        
-        .blog-content h3 {
-            margin-top: 2.5rem;
-            margin-bottom: 1.2rem;
-            color: var(--heading-color);
-        }
-        
-        .blog-content p {
-            margin-bottom: 1.8rem;
-        }
-        
-        .blog-content ul, 
-        .blog-content ol {
-            margin-bottom: 2rem;
-            padding-left: 1.5rem;
-        }
-        
-        .blog-content li {
-            margin-bottom: 0.8rem;
-        }
-        
-        .blog-content blockquote {
-            border-left: 4px solid var(--blog-primary);
-            padding: 1.5rem 2rem;
-            margin: 3rem 0;
-            font-style: italic;
-            color: var(--text-secondary);
-            background: var(--blog-primary-light);
-            border-radius: 0 8px 8px 0;
-            position: relative;
-        }
-        
-        .blog-content blockquote::before {
-            content: '\201C';
-            font-size: 4rem;
-            position: absolute;
-            left: 1rem;
-            top: 0.5rem;
-            color: var(--blog-primary);
-            opacity: 0.2;
-            font-family: serif;
-        }
-        
-        .blockchain-use-case {
-            background: var(--card-bg);
-            border-radius: 12px;
-            padding: 1.8rem;
-            margin: 2.5rem 0;
-            border: 1px solid var(--border-color);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-        }
-        
-        .blockchain-use-case h4 {
-            margin-top: 0;
-            color: var(--blog-primary);
-            font-size: 1.2rem;
-        }
-        
-        .back-to-blog {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            margin-top: 3rem;
-            color: var(--blog-primary);
-            font-weight: 600;
-            text-decoration: none;
-            transition: all 0.3s ease;
-        }
-        
-        .back-to-blog:hover {
-            gap: 0.8rem;
-        }
-
-        /* Footer Styles */
-        .footer {
-            background: var(--card-bg);
-            padding: 4rem 0 2rem;
-            border-top: 1px solid var(--border-color);
-        }
-        
-        .footer-content {
-            display: flex;
-            flex-direction: column;
-        }
-        
-        .footer-brand {
-            text-align: center;
-            margin-bottom: 2rem;
-        }
-        
-        .footer-brand .logo {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--heading-color);
-            text-decoration: none;
-        }
-        
-        .footer-brand p {
-            color: var(--text-secondary);
-            margin: 0.5rem 0;
-        }
-        
-        .footer .social-links {
-            display: flex;
-            justify-content: center;
-            gap: 1.5rem;
-            margin-top: 1rem;
-        }
-        
-        .footer .social-links a {
-            color: var(--text-secondary);
-            font-size: 1.2rem;
-            transition: color 0.3s ease;
-        }
-        
-        .footer .social-links a:hover {
-            color: var(--blog-primary);
-        }
-        
-        .footer-links {
-            display: flex;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            gap: 2rem;
-        }
-        
-        .footer-column {
-            flex: 1;
-            min-width: 200px;
-        }
-        
-        .footer-column h3 {
-            color: var(--heading-color);
-            margin-bottom: 1.5rem;
-            font-size: 1.1rem;
-        }
-        
-        .footer-column ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-        
-        .footer-column li {
-            margin-bottom: 0.8rem;
-        }
-        
-        .footer-column a {
-            color: var(--text-secondary);
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-        
-        .footer-column a:hover {
-            color: var(--blog-primary);
-        }
-        
-        .footer-bottom {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-top: 3rem;
-            padding-top: 1.5rem;
-            border-top: 1px solid var(--border-color);
-        }
-        
-        .footer-bottom p {
-            color: var(--text-secondary);
-            font-size: 0.9rem;
-        }
-        
-        @media (max-width: 768px) {
-            .blog-title {
-                font-size: 2.2rem;
-            }
-            
-            .blog-featured-image {
-                height: 300px;
-            }
-            
-            .blog-content h2 {
-                margin-top: 3rem;
-            }
-            
-            .footer-links {
-                flex-direction: column;
-                gap: 2rem;
-            }
-            
-            .footer-column {
-                text-align: center;
-            }
-            
-            .footer-bottom {
-                flex-direction: column;
-                gap: 1rem;
-                text-align: center;
-            }
-            
-            /* Mobile navigation spacing */
-            .nav-links {
-                gap: 1.5rem;
-                flex-direction: column;
-                align-items: flex-start;
-                padding: 2rem 0;
-            }
-            
-            .theme-toggle {
-                margin-left: 0;
-                margin-top: 1rem;
-            }
-        }
-    </style>
 </head>
 <body>
-    <!-- Reading Progress Indicator -->
-    <div class="reading-progress"></div>
-
-    <!-- Navigation -->
-    <header class="glassmorphism">
+    <header class="header">
         <div class="container">
-            <nav>
-                <div class="logo">
-                    <a href="../index.html">Dr.<span>June Wahu, MBChB ⚕️</span></a>
-                </div>
+            <nav class="navbar">
+                <a href="../index.html#home" class="logo">🌸 June Wahu</a>
                 <ul class="nav-links">
-                    <li><a href="../index.html#home">Home</a></li>
-                    <li><a href="../index.html#about">About</a></li>
-                    <li><a href="../index.html#projects">Projects</a></li>
-                    <li><a href="index.html">Blog</a></li>
-                    <li><a href="../index.html#contact">Contact</a></li>
-                    <li>
-                        <div class="theme-toggle">
-                            <input type="checkbox" id="dark-mode-toggle" checked>
-                            <label for="dark-mode-toggle" class="toggle-label">
-                                <i class="fas fa-sun"></i>
-                                <i class="fas fa-moon"></i>
-                                <span class="ball"></span>
-                            </label>
-                        </div>
-                    </li>
+                    <li><a class="nav-link" href="../index.html#home">Home</a></li>
+                    <li><a class="nav-link" href="../index.html#about">About</a></li>
+                    <li><a class="nav-link" href="../index.html#skills">Skills</a></li>
+                    <li><a class="nav-link" href="../index.html#projects">Projects</a></li>
+                    <li><a class="nav-link active" href="../index.html#blog">Blog</a></li>
+                    <li><a class="nav-link" href="../index.html#cv">CV</a></li>
+                    <li><a class="nav-link" href="../index.html#contact">Contact</a></li>
                 </ul>
-                <div class="hamburger">
-                    <span class="bar"></span>
-                    <span class="bar"></span>
-                    <span class="bar"></span>
-                </div>
+                <button class="hamburger" aria-label="Menu" aria-expanded="false">
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                </button>
             </nav>
         </div>
     </header>
-
-    <main class="blog-post">
-        <div class="container">
-            <article>
-                <header class="blog-header">
-                    <span class="category">Clinical Tools</span>
-                    <h1 class="blog-title">Blockchain Applications in Healthcare Data Security</h1>
-                    <div class="blog-meta">
-                        <span class="date"><i class="far fa-calendar-alt"></i> April 1, 2025</span>
-                        <span class="read-time"><i class="far fa-clock"></i> 11 min read</span>
-                    </div>
+    <main id="main-content">
+        <section class="hero" style="padding:2rem 0 1rem 0;">
+            <div class="container">
+                <h1 class="name" style="font-size:2rem;">Blockchain Applications in Healthcare Data Security</h1>
+                <p class="lead">How blockchain technology can revolutionize patient data security, privacy, and interoperability in modern healthcare systems.</p>
+            </div>
+        </section>
+        <section>
+            <div class="container">
+                <!-- Blog content start -->
+                <article>
+                    <header class="blog-header">
+                        <span class="category">Clinical Tools</span>
+                        <h1 class="blog-title">Blockchain Applications in Healthcare Data Security</h1>
+                        <div class="blog-meta">
+                            <span class="date"><i class="far fa-calendar-alt"></i> April 1, 2025</span>
+                            <span class="read-time"><i class="far fa-clock"></i> 11 min read</span>
+                        </div>
+                        
+                        <div class="author-info">
+                            <img src="../assets/images/profile.jpg" alt="Dr. June Wahu" class="author-avatar">
+                            <div class="author-details">
+                                <span class="author-name">Dr. June Wahu</span>
+                                <span class="author-title">Medical Tech Innovator</span>
+                                <div class="author-social">
+                                    <a href="https://twitter.com/junewahu" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                                    <a href="https://linkedin.com/in/junewahumwangi" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                                    <a href="https://github.com/junewahu" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <img src="../assets/images/blog/blockchain-detail.jpg" alt="Blockchain in healthcare" class="blog-featured-image">
+                    </header>
                     
-                    <div class="author-info">
-                        <img src="../assets/images/profile.jpg" alt="Dr. June Wahu" class="author-avatar">
-                        <div class="author-details">
-                            <span class="author-name">Dr. June Wahu</span>
-                            <span class="author-title">Medical Tech Innovator</span>
-                            <div class="author-social">
-                                <a href="https://twitter.com/junewahu" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-                                <a href="https://linkedin.com/in/junewahumwangi" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-                                <a href="https://github.com/junewahu" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                    <div class="blog-content">
+                        <p>Blockchain technology, best known as the foundation for cryptocurrencies, holds significant promise for addressing some of healthcare's most persistent data security and interoperability challenges. By creating decentralized, tamper-evident ledgers of health information, blockchain could transform how patient data is stored, shared, and protected.</p>
+                        
+                        <h2 id="how-blockchain-works">How Blockchain Works in Healthcare</h2>
+                        
+                        <p>At its core, blockchain is a distributed database that maintains a continuously growing list of records (blocks) linked and secured using cryptography. Key features relevant to healthcare include:</p>
+                        
+                        <div class="blockchain-use-case">
+                            <h4>1. Decentralization</h4>
+                            <p>Instead of a central authority, the network collectively validates transactions through consensus mechanisms, reducing single points of failure.</p>
+                        </div>
+                        
+                        <div class="blockchain-use-case">
+                            <h4>2. Immutability</h4>
+                            <p>Once recorded, data cannot be altered retroactively without altering all subsequent blocks, creating a verifiable audit trail.</p>
+                        </div>
+                        
+                        <div class="blockchain-use-case">
+                            <h4>3. Smart Contracts</h4>
+                            <p>Self-executing contracts with terms directly written into code can automate healthcare processes while maintaining compliance.</p>
+                        </div>
+                        
+                        <h2 id="key-applications">Key Healthcare Applications</h2>
+                        
+                        <h3>1. Patient Data Management</h3>
+                        <p>Blockchain can create unified but secure patient records:</p>
+                        <ul>
+                            <li>Patients control access through private keys</li>
+                            <li>Data remains distributed across providers</li>
+                            <li>Complete audit trail of who accessed what and when</li>
+                        </ul>
+                        
+                        <img src="../assets/images/blog/blockchain-ehr.png" alt="Blockchain for electronic health records">
+                        
+                        <h3>2. Clinical Trial Data Integrity</h3>
+                        <p>Blockchain addresses several clinical research challenges:</p>
+                        <ul>
+                            <li>Immutable recording of trial protocols and results</li>
+                            <li>Preventing selective publication of outcomes</li>
+                            <li>Ensuring consent compliance across studies</li>
+                        </ul>
+                        
+                        <h3>3. Pharmaceutical Supply Chain</h3>
+                        <p>From manufacturer to patient, blockchain can:</p>
+                        <ul>
+                            <li>Track drug provenance to combat counterfeiting</li>
+                            <li>Monitor storage conditions (temperature, humidity)</li>
+                            <li>Streamline recalls and adverse event reporting</li>
+                        </ul>
+                        
+                        <blockquote>
+                            "Blockchain in healthcare isn't about cryptocurrency—it's about creating trust in data exchanges across traditionally siloed systems."
+                        </blockquote>
+                        
+                        <h2 id="technical-implementation">Technical Implementation Approaches</h2>
+                        
+                        <p>Different blockchain architectures suit different healthcare needs:</p>
+                        
+                        <div class="blockchain-use-case">
+                            <h4>1. Permissioned vs. Permissionless Blockchains</h4>
+                            <p>Healthcare typically uses permissioned (private) blockchains where participants are known and vetted, balancing transparency with privacy requirements.</p>
+                        </div>
+                        
+                        <div class="blockchain-use-case">
+                            <h4>2. On-Chain vs. Off-Chain Storage</h4>
+                            <p>Due to data size, most implementations store only metadata (hashes) on-chain while keeping actual health data in secure off-chain storage.</p>
+                        </div>
+                        
+                        <div class="blockchain-use-case">
+                            <h4>3. Consensus Mechanisms</h4>
+                            <p>Healthcare blockchains often use practical Byzantine fault tolerance (PBFT) or proof-of-authority (PoA) for faster transactions than proof-of-work (PoW).</p>
+                        </div>
+                        
+                        <h2 id="real-world">Real-World Implementations</h2>
+                        
+                        <p>Several healthcare organizations are already piloting blockchain solutions:</p>
+                        
+                        <h3>1. MedRec (MIT)</h3>
+                        <p>An Ethereum-based system that gives patients a comprehensive view of their medical history across providers while maintaining provider-specific data governance.</p>
+                        
+                        <h3>2. FHIRChain</h3>
+                        <p>Combines HL7's FHIR standard with blockchain to enable secure, standardized health data exchange.</p>
+                        
+                        <h3>3. European Blockchain Partnership</h3>
+                        <p>A cross-border initiative testing blockchain for e-prescriptions and patient summaries across EU member states.</p>
+                        
+                        <img src="../assets/images/blog/blockchain-implementation.png" alt="Blockchain implementation in healthcare">
+                        
+                        <h2 id="challenges">Challenges and Considerations</h2>
+                        
+                        <p>Despite its promise, blockchain faces several adoption hurdles in healthcare:</p>
+                        
+                        <ul>
+                            <li><strong>Performance:</strong> Current throughput may not scale for high-volume healthcare data</li>
+                            <li><strong>Regulation:</strong> Compliance with HIPAA, GDPR, and other privacy regulations</li>
+                            <li><strong>Interoperability:</strong> Integration with legacy health IT systems</li>
+                            <li><strong>Energy Consumption:</strong> Some consensus mechanisms require substantial computing power</li>
+                        </ul>
+                        
+                        <h2 id="future">Future Directions</h2>
+                        
+                        <p>Emerging developments could further enhance healthcare blockchain applications:</p>
+                        
+                        <ul>
+                            <li><strong>Zero-Knowledge Proofs:</strong> Verify data without revealing the data itself</li>
+                            <li><strong>Sharding:</strong> Improves scalability by partitioning the network</li>
+                            <li><strong>Quantum-Resistant Cryptography:</strong> Future-proofing against quantum computing threats</li>
+                        </ul>
+                        
+                        <p>While blockchain isn't a panacea for all healthcare IT challenges, it offers unique solutions to specific problems around data integrity, provenance, and secure sharing. As the technology matures and healthcare organizations gain experience, we're likely to see increasingly sophisticated applications that enhance both security and care coordination.</p>
+                        
+                        <div class="share-section">
+                            <h3 class="share-title">Found this article valuable? Share it!</h3>
+                            <div class="share-buttons">
+                                <a href="#" class="share-button twitter"><i class="fab fa-twitter"></i></a>
+                                <a href="#" class="share-button linkedin"><i class="fab fa-linkedin"></i></a>
+                                <a href="#" class="share-button facebook"><i class="fab fa-facebook-f"></i></a>
+                                <a href="#" class="share-button link" id="copy-link"><i class="fas fa-link"></i></a>
                             </div>
                         </div>
                     </div>
                     
-                    <img src="../assets/images/blog/blockchain-detail.jpg" alt="Blockchain in healthcare" class="blog-featured-image">
-                </header>
-                
-                <div class="blog-content">
-                    <p>Blockchain technology, best known as the foundation for cryptocurrencies, holds significant promise for addressing some of healthcare's most persistent data security and interoperability challenges. By creating decentralized, tamper-evident ledgers of health information, blockchain could transform how patient data is stored, shared, and protected.</p>
-                    
-                    <h2 id="how-blockchain-works">How Blockchain Works in Healthcare</h2>
-                    
-                    <p>At its core, blockchain is a distributed database that maintains a continuously growing list of records (blocks) linked and secured using cryptography. Key features relevant to healthcare include:</p>
-                    
-                    <div class="blockchain-use-case">
-                        <h4>1. Decentralization</h4>
-                        <p>Instead of a central authority, the network collectively validates transactions through consensus mechanisms, reducing single points of failure.</p>
-                    </div>
-                    
-                    <div class="blockchain-use-case">
-                        <h4>2. Immutability</h4>
-                        <p>Once recorded, data cannot be altered retroactively without altering all subsequent blocks, creating a verifiable audit trail.</p>
-                    </div>
-                    
-                    <div class="blockchain-use-case">
-                        <h4>3. Smart Contracts</h4>
-                        <p>Self-executing contracts with terms directly written into code can automate healthcare processes while maintaining compliance.</p>
-                    </div>
-                    
-                    <h2 id="key-applications">Key Healthcare Applications</h2>
-                    
-                    <h3>1. Patient Data Management</h3>
-                    <p>Blockchain can create unified but secure patient records:</p>
-                    <ul>
-                        <li>Patients control access through private keys</li>
-                        <li>Data remains distributed across providers</li>
-                        <li>Complete audit trail of who accessed what and when</li>
-                    </ul>
-                    
-                    <img src="../assets/images/blog/blockchain-ehr.png" alt="Blockchain for electronic health records">
-                    
-                    <h3>2. Clinical Trial Data Integrity</h3>
-                    <p>Blockchain addresses several clinical research challenges:</p>
-                    <ul>
-                        <li>Immutable recording of trial protocols and results</li>
-                        <li>Preventing selective publication of outcomes</li>
-                        <li>Ensuring consent compliance across studies</li>
-                    </ul>
-                    
-                    <h3>3. Pharmaceutical Supply Chain</h3>
-                    <p>From manufacturer to patient, blockchain can:</p>
-                    <ul>
-                        <li>Track drug provenance to combat counterfeiting</li>
-                        <li>Monitor storage conditions (temperature, humidity)</li>
-                        <li>Streamline recalls and adverse event reporting</li>
-                    </ul>
-                    
-                    <blockquote>
-                        "Blockchain in healthcare isn't about cryptocurrency—it's about creating trust in data exchanges across traditionally siloed systems."
-                    </blockquote>
-                    
-                    <h2 id="technical-implementation">Technical Implementation Approaches</h2>
-                    
-                    <p>Different blockchain architectures suit different healthcare needs:</p>
-                    
-                    <div class="blockchain-use-case">
-                        <h4>1. Permissioned vs. Permissionless Blockchains</h4>
-                        <p>Healthcare typically uses permissioned (private) blockchains where participants are known and vetted, balancing transparency with privacy requirements.</p>
-                    </div>
-                    
-                    <div class="blockchain-use-case">
-                        <h4>2. On-Chain vs. Off-Chain Storage</h4>
-                        <p>Due to data size, most implementations store only metadata (hashes) on-chain while keeping actual health data in secure off-chain storage.</p>
-                    </div>
-                    
-                    <div class="blockchain-use-case">
-                        <h4>3. Consensus Mechanisms</h4>
-                        <p>Healthcare blockchains often use practical Byzantine fault tolerance (PBFT) or proof-of-authority (PoA) for faster transactions than proof-of-work (PoW).</p>
-                    </div>
-                    
-                    <h2 id="real-world">Real-World Implementations</h2>
-                    
-                    <p>Several healthcare organizations are already piloting blockchain solutions:</p>
-                    
-                    <h3>1. MedRec (MIT)</h3>
-                    <p>An Ethereum-based system that gives patients a comprehensive view of their medical history across providers while maintaining provider-specific data governance.</p>
-                    
-                    <h3>2. FHIRChain</h3>
-                    <p>Combines HL7's FHIR standard with blockchain to enable secure, standardized health data exchange.</p>
-                    
-                    <h3>3. European Blockchain Partnership</h3>
-                    <p>A cross-border initiative testing blockchain for e-prescriptions and patient summaries across EU member states.</p>
-                    
-                    <img src="../assets/images/blog/blockchain-implementation.png" alt="Blockchain implementation in healthcare">
-                    
-                    <h2 id="challenges">Challenges and Considerations</h2>
-                    
-                    <p>Despite its promise, blockchain faces several adoption hurdles in healthcare:</p>
-                    
-                    <ul>
-                        <li><strong>Performance:</strong> Current throughput may not scale for high-volume healthcare data</li>
-                        <li><strong>Regulation:</strong> Compliance with HIPAA, GDPR, and other privacy regulations</li>
-                        <li><strong>Interoperability:</strong> Integration with legacy health IT systems</li>
-                        <li><strong>Energy Consumption:</strong> Some consensus mechanisms require substantial computing power</li>
-                    </ul>
-                    
-                    <h2 id="future">Future Directions</h2>
-                    
-                    <p>Emerging developments could further enhance healthcare blockchain applications:</p>
-                    
-                    <ul>
-                        <li><strong>Zero-Knowledge Proofs:</strong> Verify data without revealing the data itself</li>
-                        <li><strong>Sharding:</strong> Improves scalability by partitioning the network</li>
-                        <li><strong>Quantum-Resistant Cryptography:</strong> Future-proofing against quantum computing threats</li>
-                    </ul>
-                    
-                    <p>While blockchain isn't a panacea for all healthcare IT challenges, it offers unique solutions to specific problems around data integrity, provenance, and secure sharing. As the technology matures and healthcare organizations gain experience, we're likely to see increasingly sophisticated applications that enhance both security and care coordination.</p>
-                    
-                    <div class="share-section">
-                        <h3 class="share-title">Found this article valuable? Share it!</h3>
-                        <div class="share-buttons">
-                            <a href="#" class="share-button twitter"><i class="fab fa-twitter"></i></a>
-                            <a href="#" class="share-button linkedin"><i class="fab fa-linkedin"></i></a>
-                            <a href="#" class="share-button facebook"><i class="fab fa-facebook-f"></i></a>
-                            <a href="#" class="share-button link" id="copy-link"><i class="fas fa-link"></i></a>
-                        </div>
-                    </div>
-                </div>
-                
-                <a href="index.html" class="back-to-blog"><i class="fas fa-arrow-left"></i> Back to all articles</a>
-            </article>
-        </div>
+                    <a href="index.html" class="back-to-blog"><i class="fas fa-arrow-left"></i> Back to all articles</a>
+                </article>
+                <!-- Blog content end -->
+            </div>
+        </section>
     </main>
-
-    <!-- Footer -->
-    <footer class="footer">
+    <footer>
         <div class="container">
-            <div class="footer-content">
-                <div class="footer-brand">
-                    <a href="../index.html" class="logo">Dr. June Wahu</a>
-                    <p>Bridging Medicine and Technology</p>
-                    <div class="social-links">
-                        <a href="https://linkedin.com/in/junewahumwangi" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-                        <a href="https://github.com/junewahu" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
-                        <a href="https://twitter.com/junewahu" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-                    </div>
-                </div>
-                <div class="footer-links">
-                    <div class="footer-column">
-                        <h3>Explore</h3>
-                        <ul>
-                            <li><a href="../index.html#home">Home</a></li>
-                            <li><a href="../index.html#about">About</a></li>
-                            <li><a href="../index.html#projects">Projects</a></li>
-                            <li><a href="index.html">Blog</a></li>
-                        </ul>
-                    </div>
-                    <div class="footer-column">
-                        <h3>Resources</h3>
-                        <ul>
-                            <li><a href="#">Pitch Deck Presentations</a></li>
-                        </ul>
-                    </div>
-                    <div class="footer-column">
-                        <h3>Contact</h3>
-                        <ul>
-                            <li><a href="mailto:junewahu@gmail.com">junewahu@gmail.com</a></li>
-                            <li><a href="tel:+254759698950">+254 759 698 950</a></li>
-                            <li><a href="#">Nairobi, Kenya</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2025 Dr. June Wahu. All rights reserved.</p>
-                <div class="theme-toggle">
-                    <input type="checkbox" id="footer-dark-mode-toggle" checked>
-                    <label for="footer-dark-mode-toggle" class="toggle-label">
-                        <i class="fas fa-sun"></i>
-                        <i class="fas fa-moon"></i>
-                        <span class="ball"></span>
-                    </label>
-                </div>
-            </div>
+            <p>© 2025 June Wahu - Healing the world, one line of code at a time.</p>
         </div>
     </footer>
-
-    <script src="../assets/js/main.js"></script>
-    <script>
-        // Reading progress indicator
-        window.addEventListener('scroll', function() {
-            const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
-            const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-            const scrollProgress = (scrollTop / scrollHeight) * 100;
-            document.querySelector('.reading-progress').style.width = scrollProgress + '%';
-        });
-        
-        // Copy link functionality
-        document.getElementById('copy-link').addEventListener('click', function(e) {
-            e.preventDefault();
-            const url = window.location.href;
-            navigator.clipboard.writeText(url).then(function() {
-                const tooltip = document.createElement('div');
-                tooltip.textContent = 'Link copied!';
-                tooltip.style.position = 'fixed';
-                tooltip.style.bottom = '20px';
-                tooltip.style.right = '20px';
-                tooltip.style.padding = '10px 15px';
-                tooltip.style.background = 'var(--blog-primary)';
-                tooltip.style.color = 'white';
-                tooltip.style.borderRadius = '5px';
-                tooltip.style.zIndex = '1000';
-                document.body.appendChild(tooltip);
-                
-                setTimeout(function() {
-                    document.body.removeChild(tooltip);
-                }, 2000);
-            });
-        });
-        
-        // Share buttons functionality
-        const shareButtons = document.querySelectorAll('.share-button:not(#copy-link)');
-        shareButtons.forEach(button => {
-            button.addEventListener('click', function(e) {
-                e.preventDefault();
-                let url;
-                const pageUrl = encodeURIComponent(window.location.href);
-                const pageTitle = encodeURIComponent(document.title);
-                
-                if (this.classList.contains('twitter')) {
-                    url = `https://twitter.com/intent/tweet?url=${pageUrl}&text=${pageTitle}`;
-                } else if (this.classList.contains('linkedin')) {
-                    url = `https://www.linkedin.com/shareArticle?mini=true&url=${pageUrl}&title=${pageTitle}`;
-                } else if (this.classList.contains('facebook')) {
-                    url = `https://www.facebook.com/sharer/sharer.php?u=${pageUrl}`;
-                }
-                
-                window.open(url, '_blank', 'width=600,height=400');
-            });
-        });
-        
-        // Smooth scroll for headings
-        document.querySelectorAll('.blog-content h2[id], .blog-content h3[id]').forEach(heading => {
-            heading.addEventListener('click', function() {
-                history.pushState(null, null, '#' + this.id);
-            });
-        });
-        
-        // Theme toggle functionality
-        document.addEventListener('DOMContentLoaded', function() {
-            const themeToggle = document.getElementById('dark-mode-toggle');
-            const footerThemeToggle = document.getElementById('footer-dark-mode-toggle');
-            const themeStyle = document.getElementById('theme-style');
-            
-            // Check for saved theme preference or use preferred color scheme
-            const currentTheme = localStorage.getItem('theme') || 
-                                (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
-            
-            // Apply the current theme
-            if (currentTheme === 'dark') {
-                themeStyle.href = '../assets/css/dark-mode.css';
-                themeToggle.checked = true;
-                if (footerThemeToggle) footerThemeToggle.checked = true;
-            } else {
-                themeStyle.href = '../assets/css/light-mode.css';
-                themeToggle.checked = false;
-                if (footerThemeToggle) footerThemeToggle.checked = false;
-            }
-            
-            // Toggle theme when switch is clicked
-            themeToggle.addEventListener('change', function() {
-                if (this.checked) {
-                    themeStyle.href = '../assets/css/dark-mode.css';
-                    localStorage.setItem('theme', 'dark');
-                } else {
-                    themeStyle.href = '../assets/css/light-mode.css';
-                    localStorage.setItem('theme', 'light');
-                }
-                
-                // Sync footer toggle if it exists
-                if (footerThemeToggle) {
-                    footerThemeToggle.checked = this.checked;
-                }
-            });
-            
-            // Sync footer toggle with main toggle
-            if (footerThemeToggle) {
-                footerThemeToggle.addEventListener('change', function() {
-                    themeToggle.checked = this.checked;
-                    themeToggle.dispatchEvent(new Event('change'));
-                });
-            }
-        });
-    </script>
+    <script src="../assets/js/script.js"></script>
 </body>
 </html>

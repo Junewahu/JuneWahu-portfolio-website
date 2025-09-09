@@ -151,22 +151,47 @@ const initRadarChart = () => {
 // Contact Form Submission
 if (contactForm) {
     contactForm.addEventListener('submit', function(e) {
-        e.preventDefault();
+        // Check if form is valid
+        if (!this.checkValidity()) {
+            e.preventDefault();
+            formMessage.textContent = 'Please fill in all required fields correctly.';
+            formMessage.classList.add('error');
+            formMessage.style.display = 'block';
+            
+            setTimeout(() => {
+                formMessage.style.display = 'none';
+                formMessage.classList.remove('error');
+            }, 5000);
+            return;
+        }
         
-        // Simulate form submission
-        formMessage.textContent = 'Your message has been sent successfully! I will get back to you soon.';
+        // Show loading state
+        const submitBtn = this.querySelector('button[type="submit"]');
+        const originalText = submitBtn.innerHTML;
+        submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin" aria-hidden="true"></i> Sending...';
+        submitBtn.disabled = true;
+        
+        // Form will submit to Formsubmit.co
+        // Success message will be shown via URL parameter
+        setTimeout(() => {
+            submitBtn.innerHTML = originalText;
+            submitBtn.disabled = false;
+        }, 3000);
+    });
+}
+
+// Check for success parameter in URL
+const urlParams = new URLSearchParams(window.location.search);
+if (urlParams.get('success') === 'true') {
+    const formMessage = document.querySelector('.form-message');
+    if (formMessage) {
+        formMessage.textContent = 'Thank you! Your message has been sent successfully. I will get back to you soon.';
         formMessage.classList.add('success');
         formMessage.style.display = 'block';
         
-        // Reset form
-        this.reset();
-        
-        // Hide message after 5 seconds
-        setTimeout(() => {
-            formMessage.style.display = 'none';
-            formMessage.classList.remove('success');
-        }, 5000);
-    });
+        // Clean URL
+        window.history.replaceState({}, document.title, window.location.pathname);
+    }
 }
 
 // Initialize Particle.js
@@ -465,8 +490,51 @@ const lazyLoadImages = () => {
     });
 };
 
+// Project Filtering
+const initProjectFilters = () => {
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const projectCards = document.querySelectorAll('.project-card');
+    
+    if (!filterButtons.length || !projectCards.length) return;
+    
+    filterButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            // Remove active class from all buttons
+            filterButtons.forEach(btn => btn.classList.remove('active'));
+            // Add active class to clicked button
+            button.classList.add('active');
+            
+            const filterValue = button.getAttribute('data-filter');
+            
+            projectCards.forEach(card => {
+                const cardCategory = card.getAttribute('data-category');
+                
+                if (filterValue === 'all' || cardCategory === filterValue) {
+                    card.style.display = 'block';
+                    card.style.animation = 'fadeInUp 0.5s ease forwards';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        });
+    });
+};
+
+// Initialize AOS (Animate On Scroll)
+const initAOS = () => {
+    if (typeof AOS !== 'undefined') {
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: true,
+            offset: 100
+        });
+    }
+};
+
 // Initialize all functions when DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {
+    initAOS();
     initRadarChart();
     initParticles();
     initTestimonialSlider();
@@ -475,6 +543,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initTiltEffects();
     initTypewriter();
     lazyLoadImages();
+    initProjectFilters();
 });
 
 // Handle window resize
